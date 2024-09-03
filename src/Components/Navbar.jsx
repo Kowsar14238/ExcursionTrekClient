@@ -114,14 +114,14 @@ const Navbar = () => {
       </div>
       <div className="navbar-end gap-3 p-0 m-0">
         <div className="hidden md:grid md:grid-flow-col md:gap-1 p-0 m-0">
-          <Link to="register" className="btn">
+          <Link to="register" className="btn btn-primary">
             Register
           </Link>
-          <Link to="login" className="btn">
+          <Link to="login" className="btn btn-primary">
             Login
           </Link>
         </div>
-        <div className="py-0 my-0">
+        <div className="py-0 my-0 btn btn-neutral">
           <label className="swap swap-rotate p-0 m-0 grid justify-center items-center">
             <input type="checkbox" />
 
