@@ -2,35 +2,38 @@ import { Link } from "react-router-dom";
 
 const Registration = () => {
   return (
-    <div className="max-w-md mx-auto">
-      <form>
+    <div className="max-w-md mx-auto w-full p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700 my-8">
+      <form className="space-y-6" action="#">
+        <h5 className="text-xl font-medium text-gray-900 dark:text-white text-center">
+          Registration in to our platform
+        </h5>
         <div className="relative z-0 w-full mb-5 group">
           <input
             type="text"
-            name="floating_first_name"
-            id="floating_first_name"
+            name="name"
+            id="name"
             className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-            placeholder=" "
+            placeholder=""
             required
           />
           <label
-            htmlFor="floating_first_name"
+            htmlFor="name"
             className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
           >
-            First name
+            Full name
           </label>
         </div>
         <div className="relative z-0 w-full mb-5 group">
           <input
             type="email"
-            name="floating_email"
-            id="floating_email"
+            name="email"
+            id="email"
             className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
             placeholder=" "
             required
           />
           <label
-            htmlFor="floating_email"
+            htmlFor="email"
             className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
           >
             Email address
@@ -39,14 +42,14 @@ const Registration = () => {
         <div className="relative z-0 w-full mb-5 group">
           <input
             type="password"
-            name="floating_password"
-            id="floating_password"
+            name="password"
+            id="password"
             className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
             placeholder=" "
             required
           />
           <label
-            htmlFor="floating_password"
+            htmlFor="password"
             className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
           >
             Password
@@ -55,14 +58,14 @@ const Registration = () => {
         <div className="relative z-0 w-full mb-5 group">
           <input
             type="password"
-            name="repeat_password"
-            id="floating_repeat_password"
+            name="confirm_password"
+            id="confirm_password"
             className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
             placeholder=" "
             required
           />
           <label
-            htmlFor="floating_repeat_password"
+            htmlFor="confirm_password"
             className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
           >
             Confirm password
@@ -72,13 +75,13 @@ const Registration = () => {
           <input
             type="text"
             name="photo_url"
-            id="floating_photo_url"
+            id="photo_url"
             className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
             placeholder=" "
             required
           />
           <label
-            htmlFor="floating_photo_url"
+            htmlFor="photo_url"
             className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
           >
             Photo URL
@@ -87,20 +90,21 @@ const Registration = () => {
 
         <button
           type="submit"
-          className="btn btn-block text-white bg-blue-700 hover:bg-blue-800 focus:ring-blue-300 font-medium rounded-lg text-sm"
+          className="btn btn-block text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
         >
           Submit
         </button>
       </form>
-      <p className="py-2 text-center font-semibold text-red-700 hover:text-green-700">
-        If you are already register{" "}
+      <div className="text-sm font-medium text-gray-500 dark:text-gray-300 text-center mt-2">
+        If already registered{" "}
         <Link
           to="/login"
-          className="underline underline-offset-2 hover:text-xl"
+          href="#"
+          className="text-blue-700 hover:underline dark:text-blue-500"
         >
           Login
         </Link>
-      </p>
+      </div>
     </div>
   );
 };
