@@ -1,6 +1,24 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
 const Registration = () => {
+
+  // const [userData, setUserData] = useState({
+  //   name: "",
+  //   email: "",
+  //   password: "",
+  //   confirmPassword: "",
+  //   photoUrl: "",
+  // });
+
+  // const handleSubmit =(e) =>{
+  //   e.preventDefault();
+
+  //   const {name, email, password, confirmPassword, photoUrl} = userData;
+
+  //   console.log(userData);
+
+  // }
   return (
     <div className="max-w-md mx-auto w-full p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700 my-8">
       <form className="space-y-6" action="#">
@@ -58,14 +76,14 @@ const Registration = () => {
         <div className="relative z-0 w-full mb-5 group">
           <input
             type="password"
-            name="confirm_password"
-            id="confirm_password"
+            name="confirmPassword"
+            id="confirmPassword"
             className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
             placeholder=" "
             required
           />
           <label
-            htmlFor="confirm_password"
+            htmlFor="confirmPassword"
             className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
           >
             Confirm password
@@ -74,14 +92,14 @@ const Registration = () => {
         <div className="relative z-0 w-full mb-5 group">
           <input
             type="text"
-            name="photo_url"
-            id="photo_url"
+            name="photoUrl"
+            id="photoUrl"
             className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
             placeholder=" "
             required
           />
           <label
-            htmlFor="photo_url"
+            htmlFor="photoUrl"
             className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
           >
             Photo URL
