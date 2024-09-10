@@ -1,16 +1,25 @@
 import { Link } from "react-router-dom";
-import { FaGoogle, FaGithub, FaRegUser, FaLock } from "react-icons/fa";
-import { getAuth, GoogleAuthProvider } from "firebase/auth";
-import app from "../Firebase/firebase.config.js";
+import { FaGoogle, FaRegUser, FaLock } from "react-icons/fa";
+import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import app from "../../firebase.config";
 
 const Login = () => {
-
   const auth = getAuth(app);
+  // console.log(auth);
   const provider = new GoogleAuthProvider();
 
-  const handleGoogleSignIn = ()=>{
-    console.log("Signing in...");
-  }
+  const handleGoogleSignIn = () => {
+    // console.log("Signing in...");
+
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   return (
     <div className="max-w-md mx-auto my-8">
@@ -64,12 +73,13 @@ const Login = () => {
                 Remember me
               </label>
             </div>
-            <a
+            {/* <a
               href="#"
               className="ms-auto text-sm text-blue-700 hover:underline dark:text-blue-500"
             >
               Forget Password?
-            </a>(NW)
+            </a>
+            (NW) */}
           </div>
           <button
             type="submit"
@@ -77,26 +87,20 @@ const Login = () => {
           >
             Login to your account
           </button>
-          <div className="flex flex-row justify-center items-center gap-2">
-            <button
-              type="button"
-              className="text-white bg-[#24292F] hover:bg-[#24292F]/90 focus:ring-4 focus:outline-none focus:ring-[#24292F]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-gray-500 dark:hover:bg-[#050708]/30 me-2 mb-2"
-            >
-              <FaGithub className="w-4 h-4 me-2" />
-              GitHub
-            </button>
-
-            <button onClick={handleGoogleSignIn}
-              type="button"
-              className="text-white bg-[#4285F4] hover:bg-[#4285F4]/90 focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55 me-2 mb-2"
-            >
-              <FaGoogle className="w-4 h-4 me-2" />
-              Google
-            </button>
-          </div>
+          <button
+            onClick={handleGoogleSignIn}
+            type="button"
+            className="w-full flex flex-row justify-center items-center gap-2 text-white bg-[#4285F4] hover:bg-[#4285F4]/90 focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:focus:ring-[#4285F4]/55 me-2 mb-2"
+          >
+            <div className="bg-slate-100 p-1 rounded-full">
+              <FaGoogle className="text-green-500 " />
+            </div>
+            Google
+          </button>
           <div className="text-sm font-medium text-gray-500 dark:text-gray-300">
             Not registered?{" "}
-            <Link to="/register"
+            <Link
+              to="/register"
               href="#"
               className="text-blue-700 hover:underline dark:text-blue-500"
             >

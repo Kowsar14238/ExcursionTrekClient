@@ -5,12 +5,12 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
-  authDomain: process.env.REACT_APP_FIREBASE_API_KEY,
-  projectId: process.env.REACT_APP_FIREBASE_API_KEY,
-  storageBucket: process.env.REACT_APP_FIREBASE_API_KEY,
-  messagingSenderId: process.env.REACT_APP_FIREBASE_API_KEY,
-  appId: process.env.REACT_APP_FIREBASE_API_KEY
+  apiKey: "AIzaSyCqS4LMmDH7my_nOFtEYP9rBsjh3L9MIEA",
+  authDomain: "excursiontrek.firebaseapp.com",
+  projectId: "excursiontrek",
+  storageBucket: "excursiontrek.appspot.com",
+  messagingSenderId: "979285223036",
+  appId: "1:979285223036:web:bf42303ce396cecae5cbf9"
 };
 
 // Initialize Firebase
