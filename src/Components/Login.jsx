@@ -1,30 +1,56 @@
 import { Link } from "react-router-dom";
 import { FaGoogle, FaRegUser, FaLock } from "react-icons/fa";
-import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { getAuth, GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import app from "../../firebase.config";
+import { useState } from "react";
 
 const Login = () => {
   const auth = getAuth(app);
   // console.log(auth);
   const provider = new GoogleAuthProvider();
 
+  const [user, setUser] = useState(null);
+
+  //User create by google account
   const handleGoogleSignIn = () => {
     // console.log("Signing in...");
 
     signInWithPopup(auth, provider)
       .then((result) => {
-        const user = result.user;
-        console.log(user);
+        const loggedInUser = result.user;
+        console.log(loggedInUser);
+        setUser(loggedInUser);
       })
       .catch((error) => {
         console.log(error);
       });
   };
 
+  const handleEmailSignIn = (e) => {
+    e.preventDefault();
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+    // console.log(email, password);
+
+    signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        // Signed in
+        console.log(userCredential.user);
+      })
+      .catch((error) => {
+        const errorMessage = error.message;
+      console.log(errorMessage);
+      });
+  };
+
   return (
     <div className="max-w-md mx-auto my-8">
       <div className="w-full max-w-md p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700">
-        <form className="space-y-6 text-center" action="#">
+        <form
+          onSubmit={handleEmailSignIn}
+          className="space-y-6 text-center"
+          action="#"
+        >
           <h5 className="text-xl font-medium text-gray-900 dark:text-white">
             Sign in to our platform
           </h5>

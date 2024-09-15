@@ -1,27 +1,53 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
+import app from "../../firebase.config";
 
 const Registration = () => {
+  const auth = getAuth(app);
+  const [registerError, setRegisterError] = useState("");
+  const [registerSuccess, setRegisterSuccess] = useState("");
 
-  // const [userData, setUserData] = useState({
-  //   name: "",
-  //   email: "",
-  //   password: "",
-  //   confirmPassword: "",
-  //   photoUrl: "",
-  // });
+  //User create with email and password
+  const handleRegister = (e) => {
+    e.preventDefault(); //Hence the page will not reload automatically
 
-  // const handleSubmit =(e) =>{
-  //   e.preventDefault();
+    const name = e.target.name.value;
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+    const confirmPassword = e.target.confirmPassword.value;
+    const photoUrl = e.target.photoUrl.value;
 
-  //   const {name, email, password, confirmPassword, photoUrl} = userData;
+    console.log(name, email, password, confirmPassword, photoUrl);
+    //reset error
+    setRegisterError("");
+    setRegisterSuccess("");
 
-  //   console.log(userData);
+    if (password.length < 6) {
+      setRegisterError("Password must be at least 6 characters");
+      return;
+    }
+    if (password != confirmPassword) {
+      setRegisterError("Password and Confirm Password is not same");
+      return;
+    }
 
-  // }
+    //create user
+    createUserWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        // Signed up
+        const user = userCredential.user;
+        console.log(user);
+      })
+      .catch((error) => {
+        console.error(error);
+        setRegisterError(error.message);
+      });
+  };
+
   return (
     <div className="max-w-md mx-auto w-full p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700 my-8">
-      <form className="space-y-6" action="#">
+      <form onSubmit={handleRegister} className="space-y-6" action="#">
         <h5 className="text-xl font-medium text-gray-900 dark:text-white text-center">
           Registration in to our platform
         </h5>
@@ -113,6 +139,10 @@ const Registration = () => {
           Submit
         </button>
       </form>
+
+      {registerError && <p className="text-white">{setRegisterError}</p>}
+      {registerSuccess && <p className="text-white">{setRegisterSuccess}</p>}
+
       <div className="text-sm font-medium text-gray-500 dark:text-gray-300 text-center mt-2">
         If already registered{" "}
         <Link

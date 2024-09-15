@@ -69,7 +69,7 @@ const Navbar = () => {
                   My List
                 </Link>
               </li>
-              <div className="grid grid-flow-col gap-1 py-2">
+              <div className="md:hidden grid grid-flow-col gap-1 py-2">
                 <Link to="register" onClick={toggleDropdown} className="btn btn-sm">
                   Register
                 </Link>
